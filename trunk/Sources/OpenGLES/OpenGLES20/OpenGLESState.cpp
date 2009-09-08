@@ -1435,6 +1435,15 @@ void OpenGLESState::setClipPlane(GLenum clipPlaneIndex, Vector4<GLfloat> vec)
 	static_cast<Uniform<Vector4<GLfloat> > * >(uniforms[UniformId::CLIP_PLANE0_EQUATION + clipPlaneIndex])->setValue(vec);
 }
 
+void OpenGLESState::getClipPlane(GLenum clipPlaneIndex, GLfloat eqn[4])
+{
+	Vector4<GLfloat> vec = static_cast<Uniform<Vector4<GLfloat> > * >(uniforms[UniformId::CLIP_PLANE0_EQUATION + clipPlaneIndex])->getValue();
+	eqn[0] = vec[0];
+	eqn[1] = vec[1];
+	eqn[2] = vec[2];
+	eqn[3] = vec[3];
+}
+
 void OpenGLESState::setTextureMatrix(int index, Matrix4x4<GLfloat> mat)
 {
 	static_cast<Uniform<Matrix4x4<GLfloat> > * >(uniforms[UniformId::TEXTURE0_MATRIX + index])->setValue(mat);
@@ -1445,3 +1454,7 @@ void OpenGLESState::setTextureMatrix(int index, bool enabled)
 	static_cast<Uniform<bool> * >(uniforms[UniformId::TEXTURE0_MATRIX_ENABLED + index])->setValue(enabled);
 }
 
+int OpenGLESState::getCachedShaderAmount()
+{
+	return stateShaderPrograms.size();
+}

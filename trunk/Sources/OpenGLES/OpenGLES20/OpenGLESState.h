@@ -507,8 +507,11 @@ namespace OpenGLES {
 			void setAlphaFuncValue(GLfloat val);
 			void setClipPlane(GLenum clipPlaneIndex, bool enabled);
 			void setClipPlane(GLenum clipPlaneIndex, Vector4<GLfloat> vec);
+			void getClipPlane(GLenum clipPlaneIndex, GLfloat eqn[4]);
 			void setTextureMatrix(int index, Matrix4x4<GLfloat> mat);
 			void setTextureMatrix(int index, bool enabled);
+			
+			int getCachedShaderAmount();
 			
 		private:
 			void setActiveUniformLocations(std::vector<UniformSimple *> *activeUniforms);

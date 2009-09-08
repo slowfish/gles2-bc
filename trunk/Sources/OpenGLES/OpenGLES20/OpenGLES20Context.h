@@ -282,6 +282,9 @@ namespace OpenGLES {
 			GLvoid * glMapBufferOES (GLenum target, GLenum access);
 			GLboolean glUnmapBufferOES (GLenum target);
 			
+			// Non-API
+			int getCachedShaderAmount();
+			
 		private:
 			MatrixStack matrixStack;
 			OpenGLESState openGLESState;

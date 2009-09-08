@@ -1035,7 +1035,7 @@ void OpenGLES20Context::glGenBuffers (GLsizei n, GLuint *buffers)
 
 void OpenGLES20Context::glGetClipPlanef(GLenum pname, GLfloat eqn[4])
 {
-	LOG_MESSAGE(__FILE__, __LINE__, "ERROR: Not implemented.");
+	openGLESState.getClipPlane(pname - GL_CLIP_PLANE0, eqn);
 }
 
 void OpenGLES20Context::glGetFloatv(GLenum pname, GLfloat *params)
@@ -1873,3 +1873,7 @@ GLboolean OpenGLES20Context::glUnmapBufferOES (GLenum target)
 #endif
 }
 
+int OpenGLES20Context::getCachedShaderAmount()
+{
+	return openGLESState.getCachedShaderAmount();
+}
