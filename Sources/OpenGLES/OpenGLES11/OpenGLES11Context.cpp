@@ -1031,7 +1031,7 @@ void OpenGLES11Context::glBlendEquation ( GLenum mode )
 void OpenGLES11Context::glBlendEquationSeparate (GLenum modeRGB, GLenum modeAlpha)
 {
 #ifdef GL_OES_blend_equation_separate
-	::glBlendEquationSeparateOES();
+	::glBlendEquationSeparateOES(modeRGB, modeAlpha);
 #else
 	LOG_DEBUG_MESSAGE(__FILE__, __LINE__, "WARNING: No effect in OpenGL ES 1.x");
 #endif
@@ -1040,7 +1040,7 @@ void OpenGLES11Context::glBlendEquationSeparate (GLenum modeRGB, GLenum modeAlph
 void OpenGLES11Context::glBlendFuncSeparate (GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha)
 {
 #ifdef GL_OES_blend_func_separate
-	::glBlendFuncSeparateOES();
+	::glBlendFuncSeparateOES(srcRGB, dstRGB, srcAlpha, dstAlpha);
 #else
 	LOG_DEBUG_MESSAGE(__FILE__, __LINE__, "WARNING: No effect in OpenGL ES 1.x");
 #endif
