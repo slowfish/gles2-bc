@@ -1036,6 +1036,7 @@ void OpenGLES20Context::glGenBuffers (GLsizei n, GLuint *buffers)
 void OpenGLES20Context::glGetClipPlanef(GLenum pname, GLfloat eqn[4])
 {
 	openGLESState.getClipPlane(pname - GL_CLIP_PLANE0, eqn);
+	CHECK_GL_ERROR(glGetError(), __FILE__, __LINE__);
 }
 
 void OpenGLES20Context::glGetFloatv(GLenum pname, GLfloat *params)
